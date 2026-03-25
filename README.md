@@ -1,1 +1,1 @@
-# excuse-generator
+# Oráculo de Delfos
