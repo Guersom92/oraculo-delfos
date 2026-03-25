@@ -1,0 +1,305 @@
+---
+// OracleTrance.astro — Shown while the backend is processing the prophecy
+---
+
+  <div class="trance-scene hidden" id="oracle-trance">
+
+    <!-- Pythia in trance — eyes closed, arms raised -->
+    <div class="pythia-trance-container">
+      <svg
+        viewBox="0 0 300 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="pythia-trance-svg"
+        aria-label="La Pitia en trance"
+      >
+        <defs>
+          <radialGradient id="tranceGlow" cx="50%" cy="40%" r="55%">
+            <stop offset="0%"   stop-color="#C9A84C" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="skinGrad" cx="45%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#E0B882"/>
+            <stop offset="100%" stop-color="#B8864A"/>
+          </radialGradient>
+          <radialGradient id="robeGrad" cx="50%" cy="20%" r="80%">
+            <stop offset="0%"   stop-color="#A67C28"/>
+            <stop offset="100%" stop-color="#5C3D0E"/>
+          </radialGradient>
+          <filter id="softGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- Aura glow -->
+        <ellipse cx="150" cy="220" rx="115" ry="210" fill="url(#tranceGlow)"/>
+
+        <!-- VEIL back -->
+        <path d="M150 42 C118 42 82 62 72 100 C58 148 60 200 68 248 C80 242 95 238 108 236 C103 192 106 148 118 108 C128 78 140 58 150 54 C160 58 172 78 182 108 C194 148 197 192 192 236 C205 238 220 242 232 248 C240 200 242 148 228 100 C218 62 182 42 150 42Z"
+          fill="#6B4F0E" opacity="0.85"/>
+
+        <!-- Veil sides -->
+        <path d="M72 100 C60 155 58 215 65 268 C74 263 85 260 95 260 C88 210 88 158 97 110Z"
+          fill="#4A320A" opacity="0.8"/>
+        <path d="M228 100 C240 155 242 215 235 268 C226 263 215 260 205 260 C212 210 212 158 203 110Z"
+          fill="#4A320A" opacity="0.8"/>
+
+        <!-- HEAD -->
+        <ellipse cx="150" cy="108" rx="39" ry="47" fill="url(#skinGrad)"/>
+
+        <!-- Hair -->
+        <path d="M114 90 C118 82 128 76 150 74 C172 76 182 82 186 90 C174 84 162 82 150 82 C138 82 126 84 114 90Z"
+          fill="#3A2010"/>
+
+        <!-- Gold headband -->
+        <path d="M114 90 C126 84 138 82 150 82 C162 82 174 84 186 90"
+          stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round" filter="url(#softGlow)"/>
+        <ellipse cx="150" cy="84" rx="36" ry="5" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+
+        <!-- CLOSED EYES (trance) -->
+        <path d="M120 102 C124 99 130 99 135 101 C130 104 124 104 120 102Z" fill="#2C1810"/>
+        <path d="M118 102 C122 107 136 107 138 102" stroke="#2C1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M165 101 C170 99 176 99 180 102 C176 104 170 104 165 101Z" fill="#2C1810"/>
+        <path d="M162 102 C164 107 178 107 182 102" stroke="#2C1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- Furrowed brows in concentration -->
+        <path d="M116 96 C120 93 127 92 133 94" stroke="#4A2E0E" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M167 94 C173 92 180 93 184 96" stroke="#4A2E0E" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M133 94 C138 95 141 96 143 95" stroke="#5A3A1E" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+        <path d="M157 95 C159 96 162 95 167 94" stroke="#5A3A1E" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+        <!-- Nose -->
+        <path d="M147 115 C148 124 150 127 152 124" stroke="#9A7050" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Mouth slightly open in trance -->
+        <path d="M135 136 C140 132 148 131 158 133 C162 135 162 139 158 141 C148 143 140 143 135 140 C132 138 133 135 135 136Z"
+          fill="#8B4A30"/>
+        <path d="M137 136 C143 134 157 134 161 136" stroke="#6B3520" stroke-width="1" fill="none" opacity="0.5"/>
+
+        <!-- NECK -->
+        <path d="M136 150 L136 180 C140 183 145 184 150 184 C155 184 160 183 164 180 L164 150 C160 153 155 155 150 155 C145 155 140 153 136 150Z"
+          fill="url(#skinGrad)"/>
+
+        <!-- ROBE BODY -->
+        <path d="M92 184 C75 200 62 232 55 272 C48 315 48 368 52 425 C56 448 62 468 68 484 L232 484 C238 468 244 448 248 425 C252 368 252 315 245 272 C238 232 225 200 208 184 C192 176 172 173 150 173 C128 173 108 176 92 184Z"
+          fill="url(#robeGrad)"/>
+
+        <!-- Robe folds -->
+        <path d="M150 173 C145 225 143 285 146 355 C148 400 150 445 151 484" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.35"/>
+        <path d="M118 180 C110 235 108 295 114 365 C118 405 126 448 136 484" stroke="#8B6914" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M182 180 C190 235 192 295 186 365 C182 405 174 448 164 484" stroke="#8B6914" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M92 192 C80 248 78 308 84 378" stroke="#8B6914" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <path d="M208 192 C220 248 222 308 216 378" stroke="#8B6914" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+        <!-- Shoulder overlay (himation) -->
+        <path d="M92 184 C72 198 62 220 68 248 C82 242 98 237 112 235 C105 218 103 202 110 190Z"
+          fill="#A67C1A" opacity="0.6"/>
+        <path d="M208 184 C228 198 238 220 232 248 C218 242 202 237 188 235 C195 218 197 202 190 190Z"
+          fill="#A67C1A" opacity="0.6"/>
+
+        <!-- LEFT ARM RAISED (trance, palms up to the heavens) -->
+        <path d="M92 198 C75 210 55 230 38 258 C44 267 56 266 64 257 C72 238 86 218 108 206Z"
+          fill="url(#skinGrad)"/>
+        <!-- Left hand raised -->
+        <path d="M36 256 C30 263 28 274 32 282 C38 288 50 285 54 275 C56 267 54 258 46 254Z"
+          fill="url(#skinGrad)"/>
+        <!-- Fingers hints -->
+        <path d="M30 268 C34 260 42 256 50 258" stroke="#9A7050" stroke-width="1.2" fill="none" opacity="0.7"/>
+        <path d="M29 274 C33 266 41 262 49 264" stroke="#9A7050" stroke-width="1" fill="none" opacity="0.5"/>
+
+        <!-- RIGHT ARM RAISED (mirror) -->
+        <path d="M208 198 C225 210 245 230 262 258 C256 267 244 266 236 257 C228 238 214 218 192 206Z"
+          fill="url(#skinGrad)"/>
+        <!-- Right hand raised -->
+        <path d="M264 256 C270 263 272 274 268 282 C262 288 250 285 246 275 C244 267 246 258 254 254Z"
+          fill="url(#skinGrad)"/>
+        <path d="M270 268 C266 260 258 256 250 258" stroke="#9A7050" stroke-width="1.2" fill="none" opacity="0.7"/>
+        <path d="M271 274 C267 266 259 262 251 264" stroke="#9A7050" stroke-width="1" fill="none" opacity="0.5"/>
+
+        <!-- Veil front top edge gold detail -->
+        <path d="M114 78 C128 72 150 70 172 72 C178 75 181 80 176 84 C165 78 155 76 150 76 C145 76 135 78 124 84 C119 80 114 78 114 78Z"
+          fill="#C9A84C" opacity="0.55" filter="url(#softGlow)"/>
+
+        <!-- Veil edge trailing -->
+        <path d="M65 268 C63 295 65 322 70 348 C79 344 88 342 97 341 C91 316 88 290 88 264Z"
+          fill="#3A2508" opacity="0.7"/>
+        <path d="M235 268 C237 295 235 322 230 348 C221 344 212 342 203 341 C209 316 212 290 212 264Z"
+          fill="#3A2508" opacity="0.7"/>
+      </svg>
+
+      <!-- Trance glow aura (animated) -->
+      <div class="trance-aura"></div>
+    </div>
+
+    <!-- Smoke wisps -->
+    <div class="smoke-container" aria-hidden="true">
+      <svg class="smoke-svg" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <filter id="smokeBlur">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+          </filter>
+          <filter id="smokeBlurLight">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+          </filter>
+        </defs>
+        <!-- Main smoke columns -->
+        <path class="smoke-wisp s1" d="M150 400 C155 360 140 320 152 280 C162 245 148 215 155 180 C160 155 152 130 155 100 C157 80 153 60 150 40"
+          stroke="rgba(210,180,120,0.18)" stroke-width="28" fill="none" stroke-linecap="round" filter="url(#smokeBlur)"/>
+        <path class="smoke-wisp s2" d="M120 400 C110 355 128 318 118 278 C110 244 122 210 115 175 C110 148 118 118 112 88"
+          stroke="rgba(200,165,100,0.14)" stroke-width="22" fill="none" stroke-linecap="round" filter="url(#smokeBlur)"/>
+        <path class="smoke-wisp s3" d="M180 400 C192 352 172 315 184 275 C194 240 180 205 186 170 C192 140 182 112 188 82"
+          stroke="rgba(215,185,130,0.12)" stroke-width="20" fill="none" stroke-linecap="round" filter="url(#smokeBlur)"/>
+        <!-- Thinner detail wisps -->
+        <path class="smoke-wisp s4" d="M150 400 C158 358 144 318 154 278 C162 244 150 214 156 182 C160 158 154 132 157 102"
+          stroke="rgba(232,213,163,0.22)" stroke-width="8" fill="none" stroke-linecap="round" filter="url(#smokeBlurLight)"/>
+        <path class="smoke-wisp s5" d="M135 400 C126 350 142 310 132 272 C124 240 136 208 128 174 C122 148 130 120 124 90"
+          stroke="rgba(232,213,163,0.15)" stroke-width="6" fill="none" stroke-linecap="round" filter="url(#smokeBlurLight)"/>
+        <path class="smoke-wisp s6" d="M168 400 C178 348 160 308 172 268 C182 232 168 200 175 165 C180 138 172 110 177 78"
+          stroke="rgba(232,213,163,0.13)" stroke-width="6" fill="none" stroke-linecap="round" filter="url(#smokeBlurLight)"/>
+      </svg>
+    </div>
+
+    <!-- Text -->
+    <div class="trance-text">
+      <div class="meander"></div>
+      <p class="trance-label cinzel">La Pitia consulta los vapores sagrados</p>
+      <div class="trance-dots" aria-label="Cargando">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="meander"></div>
+    </div>
+
+  </div>
+
+<style>
+  .trance-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .pythia-trance-container {
+    position: relative;
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .pythia-trance-svg {
+    width: 100%;
+    height: 100%;
+    animation: pythi-breathe 3s ease-in-out infinite, pythia-sway 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.3));
+    position: relative;
+    z-index: 2;
+  }
+
+  .trance-aura {
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 45%, rgba(201,168,76,0.2) 0%, transparent 70%);
+    animation: aura-pulse 3s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .smoke-container {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .smoke-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .smoke-wisp {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+
+  .s1 { animation: smoke-rise 4s ease-out infinite; }
+  .s2 { animation: smoke-rise 4s ease-out 0.6s infinite; }
+  .s3 { animation: smoke-rise 4s ease-out 1.2s infinite; }
+  .s4 { animation: smoke-rise 3.5s ease-out 0.3s infinite; }
+  .s5 { animation: smoke-rise 3.5s ease-out 0.9s infinite; }
+  .s6 { animation: smoke-rise 3.5s ease-out 1.5s infinite; }
+
+  @keyframes smoke-rise {
+    0%   { stroke-dashoffset: 800; opacity: 0; }
+    10%  { opacity: 1; }
+    80%  { opacity: 0.6; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  @keyframes pythi-breathe {
+    0%, 100% { transform: scaleY(1); transform-origin: bottom center; }
+    50%       { transform: scaleY(1.015); transform-origin: bottom center; }
+  }
+
+  @keyframes pythia-sway {
+    0%, 100% { transform: rotate(-0.8deg); transform-origin: bottom center; }
+    50%       { transform: rotate(0.8deg);  transform-origin: bottom center; }
+  }
+
+  @keyframes aura-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.08); }
+  }
+
+  .trance-text {
+    margin-top: 1.5rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .trance-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    animation: fade-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes fade-pulse {
+    0%, 100% { opacity: 0.5; }
+    50%       { opacity: 1; }
+  }
+
+  .trance-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .trance-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: dot-bounce 1.4s ease-in-out infinite;
+  }
+
+  .trance-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .trance-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes dot-bounce {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40%            { transform: scale(1);   opacity: 1; }
+  }
+</style>

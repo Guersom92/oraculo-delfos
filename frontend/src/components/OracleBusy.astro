@@ -1,0 +1,275 @@
+---
+// OracleBusy.astro — Shown when the rate limit has been reached
+---
+
+  <div id="oracle-busy"  class="busy-scene">
+
+    <!-- Pythia annoyed/dismissive SVG -->
+    <div class="pythia-busy-container">
+      <svg
+        viewBox="0 0 300 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="pythia-busy-svg"
+        aria-label="La Pitia ocupada"
+      >
+        <defs>
+          <radialGradient id="busySkin" cx="45%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#E0B882"/>
+            <stop offset="100%" stop-color="#B8864A"/>
+          </radialGradient>
+          <radialGradient id="busyRobe" cx="50%" cy="20%" r="80%">
+            <stop offset="0%"   stop-color="#8B6020"/>
+            <stop offset="100%" stop-color="#4A2E08"/>
+          </radialGradient>
+          <filter id="busyGlow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- VEIL back -->
+        <path d="M150 42 C118 42 82 62 72 100 C58 148 60 200 68 248 C80 242 95 238 108 236 C103 192 106 148 118 108 C128 78 140 58 150 54 C160 58 172 78 182 108 C194 148 197 192 192 236 C205 238 220 242 232 248 C240 200 242 148 228 100 C218 62 182 42 150 42Z"
+          fill="#6B4F0E" opacity="0.85"/>
+
+        <!-- Veil sides -->
+        <path d="M72 100 C60 155 58 215 65 268 C74 263 85 260 95 260 C88 210 88 158 97 110Z" fill="#4A320A" opacity="0.8"/>
+        <path d="M228 100 C240 155 242 215 235 268 C226 263 215 260 205 260 C212 210 212 158 203 110Z" fill="#4A320A" opacity="0.8"/>
+
+        <!-- HEAD -->
+        <ellipse cx="150" cy="108" rx="39" ry="47" fill="url(#busySkin)"/>
+
+        <!-- Hair -->
+        <path d="M114 90 C118 82 128 76 150 74 C172 76 182 82 186 90 C174 84 162 82 150 82 C138 82 126 84 114 90Z" fill="#3A2010"/>
+
+        <!-- Gold headband -->
+        <path d="M114 90 C126 84 138 82 150 82 C162 82 174 84 186 90" stroke="#C9A84C" stroke-width="3" fill="none" stroke-linecap="round" filter="url(#busyGlow)"/>
+
+        <!-- EYES — narrowed, annoyed, looking to the side -->
+        <!-- Left eye (narrowed) -->
+        <path d="M116 105 C120 101 128 101 133 104 C128 108 120 108 116 105Z" fill="#2C1810"/>
+        <path d="M116 105 C119 109 131 109 133 104" stroke="#1A0E08" stroke-width="1.5" fill="none"/>
+        <!-- Right eye (narrowed, looking slightly right) -->
+        <path d="M165 104 C170 101 178 101 182 105 C178 108 170 108 165 104Z" fill="#2C1810"/>
+        <path d="M165 104 C167 109 180 109 182 105" stroke="#1A0E08" stroke-width="1.5" fill="none"/>
+
+        <!-- Raised eyebrow (annoyed) — left raised higher -->
+        <path d="M114 97 C120 92 128 91 134 94" stroke="#4A2E0E" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Right brow furrowed down -->
+        <path d="M166 94 C172 91 180 92 186 97" stroke="#4A2E0E" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Nose -->
+        <path d="M147 115 C148 124 150 127 152 124" stroke="#9A7050" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Mouth — tight, slightly pursed / displeased -->
+        <path d="M133 137 C140 133 160 133 167 137 C165 141 158 143 150 143 C142 143 135 141 133 137Z" fill="#8B4A30"/>
+        <path d="M135 137 C143 135 157 135 165 137" stroke="#6B3520" stroke-width="1" fill="none"/>
+        <!-- Slight downturn at corners -->
+        <path d="M133 138 C131 140 130 143 132 145" stroke="#7A3A20" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M167 138 C169 140 170 143 168 145" stroke="#7A3A20" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+        <!-- NECK -->
+        <path d="M136 150 L136 180 C140 183 145 184 150 184 C155 184 160 183 164 180 L164 150 C160 153 155 155 150 155 C145 155 140 153 136 150Z" fill="url(#busySkin)"/>
+
+        <!-- ROBE BODY -->
+        <path d="M92 184 C75 200 62 232 55 272 C48 315 48 368 52 425 C56 448 62 468 68 484 L232 484 C238 468 244 448 248 425 C252 368 252 315 245 272 C238 232 225 200 208 184 C192 176 172 173 150 173 C128 173 108 176 92 184Z" fill="url(#busyRobe)"/>
+
+        <!-- Robe folds -->
+        <path d="M150 173 C145 225 143 285 146 355 C148 400 150 445 151 484" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.3"/>
+        <path d="M118 180 C110 235 108 295 114 365 C118 405 126 448 136 484" stroke="#7A5510" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M182 180 C190 235 192 295 186 365 C182 405 174 448 164 484" stroke="#7A5510" stroke-width="2" fill="none" opacity="0.5"/>
+
+        <!-- Shoulder overlay -->
+        <path d="M92 184 C72 198 62 220 68 248 C82 242 98 237 112 235 C105 218 103 202 110 190Z" fill="#8B6010" opacity="0.6"/>
+        <path d="M208 184 C228 198 238 220 232 248 C218 242 202 237 188 235 C195 218 197 202 190 190Z" fill="#8B6010" opacity="0.6"/>
+
+        <!-- LEFT ARM — hand raised dismissively, palm out ("No molestes") -->
+        <path d="M92 198 C80 210 68 228 58 252 C64 260 74 260 82 252 C88 234 98 214 112 202Z" fill="url(#busySkin)"/>
+        <!-- Left hand palm out -->
+        <path d="M54 250 C47 255 44 265 48 274 C55 282 68 279 72 268 C74 260 70 250 60 248Z" fill="url(#busySkin)"/>
+        <!-- Palm lines hint -->
+        <path d="M50 260 C56 254 66 252 72 256" stroke="#9A7050" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M49 267 C55 261 65 259 71 263" stroke="#9A7050" stroke-width="1" fill="none" opacity="0.4"/>
+
+        <!-- RIGHT ARM — down and slightly back, disengaged posture -->
+        <path d="M208 198 C220 210 232 228 242 255 C236 262 226 260 220 252 C214 234 204 212 190 202Z" fill="url(#busySkin)"/>
+        <!-- Right hand -->
+        <path d="M244 253 C250 259 252 269 248 277 C241 283 230 279 228 268 C226 260 229 251 237 249Z" fill="url(#busySkin)"/>
+
+        <!-- Veil front top gold -->
+        <path d="M114 78 C128 72 150 70 172 72 C178 75 181 80 176 84 C165 78 155 76 150 76 C145 76 135 78 124 84 C119 80 114 78 114 78Z" fill="#C9A84C" opacity="0.55" filter="url(#busyGlow)"/>
+
+        <!-- Veil trailing -->
+        <path d="M65 268 C63 295 65 322 70 348 C79 344 88 342 97 341 C91 316 88 290 88 264Z" fill="#3A2508" opacity="0.7"/>
+        <path d="M235 268 C237 295 235 322 230 348 C221 344 212 342 203 341 C209 316 212 290 212 264Z" fill="#3A2508" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <!-- Busy message card -->
+    <div class="busy-card">
+      <div class="meander"></div>
+
+      <h2 class="busy-title cinzel">La Pitia no está disponible</h2>
+
+      <div class="busy-divider">
+        <span class="busy-divider-line"></span>
+        <span class="busy-divider-ornament">✦</span>
+        <span class="busy-divider-line"></span>
+      </div>
+
+      <p class="busy-excuse" id="busy-excuse-text">
+        <!-- Filled by JS -->
+      </p>
+
+      <div class="busy-countdown-wrapper">
+        <p class="busy-countdown-label cinzel">Regresa en</p>
+        <div class="busy-countdown" id="busy-countdown">--</div>
+        <p class="busy-countdown-unit cinzel">segundos</p>
+      </div>
+
+      <div class="meander"></div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  
+
+  .busy-scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .pythia-busy-container {
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .pythia-busy-svg {
+    width: 100%;
+    height: 100%;
+    animation: busy-impatient 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(180, 120, 30, 0.25));
+  }
+
+  @keyframes busy-impatient {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20%       { transform: translateX(-3px) rotate(-0.5deg); }
+    40%       { transform: translateX(3px) rotate(0.5deg); }
+    60%       { transform: translateX(-2px) rotate(-0.3deg); }
+    80%       { transform: translateX(2px) rotate(0.3deg); }
+  }
+
+  .busy-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow:
+      0 0 40px rgba(0,0,0,0.6),
+      inset 0 0 60px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .busy-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Corner ornaments */
+  .busy-card::after {
+    content: '❧';
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+    color: var(--gold-dark);
+    font-size: 1.2rem;
+    opacity: 0.4;
+  }
+
+  .busy-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  .busy-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 70%;
+  }
+
+  .busy-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .busy-divider-ornament {
+    color: var(--gold);
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  .busy-excuse {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 360px;
+    min-height: 3rem;
+  }
+
+  .busy-countdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.5rem 0;
+  }
+
+  .busy-countdown-label,
+  .busy-countdown-unit {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .busy-countdown {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(201,168,76,0.4);
+    letter-spacing: 0.05em;
+    animation: countdown-tick 1s ease-in-out infinite;
+    min-width: 4rem;
+    text-align: center;
+  }
+
+  @keyframes countdown-tick {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.7; }
+  }
+</style>

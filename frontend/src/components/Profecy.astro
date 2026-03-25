@@ -1,0 +1,41 @@
+<!-- ═══════════════════════════════════════
+         STATE: PROPHECY — Result display
+    ═══════════════════════════════════════ -->
+    <section id="state-prophecy" class="state-section hidden">
+      <div class="prophecy-scene">
+
+        <!-- Decorative top -->
+        <div class="prophecy-header">
+          <div class="meander"></div>
+          <div class="prophecy-header-ornament cinzel">La Pitia habla</div>
+          <div class="meander"></div>
+        </div>
+
+        <!-- Prophecy scroll -->
+        <div class="prophecy-scroll">
+          <div class="scroll-corner tl" aria-hidden="true"></div>
+          <div class="scroll-corner tr" aria-hidden="true"></div>
+          <div class="scroll-corner bl" aria-hidden="true"></div>
+          <div class="scroll-corner br" aria-hidden="true"></div>
+
+          <div class="scroll-inner">
+            <p class="prophecy-intro cinzel">El Oráculo ha hablado:</p>
+            <div class="prophecy-divider" aria-hidden="true">
+              <span>— ✦ —</span>
+            </div>
+            <p id="prophecy-text" class="prophecy-text" role="status" aria-live="polite"></p>
+            <span id="prophecy-cursor" class="cursor-blink" aria-hidden="true">|</span>
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="prophecy-actions">
+          <button id="btn-again" class="oracle-btn oracle-btn--secondary cinzel" aria-label="Hacer otra consulta">
+            <span class="btn-ornament" aria-hidden="true">⟳</span>
+            <span class="btn-text">Consultar de nuevo</span>
+          </button>
+        </div>
+
+        <div class="meander prophecy-footer-meander"></div>
+      </div>
+    </section>
