@@ -9,18 +9,14 @@ import Profecy from '../components/Profecy.astro';
 <Layout title="El Oráculo de Delfos">
   <main class="oracle-main">
     <header class="oracle-header">
-      <div class="header-top-ornament" aria-hidden="true">
-        <span class="ornament-line"></span>
-        <span class="ornament-symbol">☽ ✦ ☾</span>
-        <span class="ornament-line"></span>
-      </div>
+    
 
       <div class="header-titles">
         <h1 class="header-title cinzel">El Oráculo</h1>
         <p class="header-tagline">La Pitia habla por boca del dios</p>
       </div>
-
       <div class="meander header-meander"></div>
+
     </header>
     
     <OracleCalm />
@@ -34,7 +30,7 @@ import Profecy from '../components/Profecy.astro';
     /* ── Layout ── */
   .oracle-main {
         padding: 1rem;
-    min-height: 100vh;
+    max-height: 100vh;
     display: grid ;
     grid-template-rows: auto 1fr auto;
     align-items: center;
@@ -61,27 +57,6 @@ import Profecy from '../components/Profecy.astro';
     gap: 0.8rem;
   }
 
-  .header-top-ornament {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .ornament-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
-  }
-
-  .ornament-symbol {
-    font-family: serif;
-    color: var(--gold-dark);
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    white-space: nowrap;
-  }
 
   .header-titles {
     display: flex;
@@ -112,7 +87,7 @@ import Profecy from '../components/Profecy.astro';
 
   .header-tagline {
     font-style: italic;
-    font-size: 0.95rem;
+    font-size: 0.80rem;
     color: var(--text-muted);
     letter-spacing: 0.05em;
   }
@@ -240,11 +215,7 @@ import Profecy from '../components/Profecy.astro';
     gap: 1rem;
   }
 
-  .prophecy-footer-meander {
-    max-width: 360px;
-    opacity: 0.5;
-  }
-
+ 
   /* ── Footer ── */
   .oracle-footer {
     text-align: center;
