@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",      
+    "start": "node index.js",
     "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.32.1",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "express": "5.2.1"
   }
 }

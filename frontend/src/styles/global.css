@@ -49,6 +49,38 @@
         position: relative;
       }
 
+      @font-face {
+        font-family: "Cinzel";
+        src: url("../fonts/Cinzel-Regular-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+            }
+
+      @font-face {
+        font-family: "Cinzel";
+        src: url("../fonts/Cinzel-Bold-webfont.woff") format("woff");
+        font-weight: 600;
+        font-style: normal;
+            }
+
+      @font-face {
+        font-family: "Cinzel";
+        src: url("../fonts/Cinzel-Black-webfont.woff") format("woff");
+        font-weight: 700;
+        font-style: normal;
+            }
+      
+      @font-face {
+        font-family: "IM Fell English";
+        src: url("../fonts/FeENit27C-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "IM Fell English";
+        src: url("../fonts/FeENit28C-webfont.woff") format("woff");
+        font-weight: normal;
+      }
       /* Grain overlay */
       body::before {
         content: "";
