@@ -1,37 +1,35 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import OracleTrance from '../components/OracleTrance.astro';
-import OracleBusy from '../components/OracleBusy.astro';
-import OracleCalm from '../components/OracleCalm.astro';
-import Profecy from '../components/Profecy.astro';
+import Layout from "../layouts/Layout.astro";
+import OracleTrance from "../components/OracleTrance.astro";
+import OracleBusy from "../components/OracleBusy.astro";
+import OracleCalm from "../components/OracleCalm.astro";
+import Profecy from "../components/Profecy.astro";
+import { initOracleScript } from "../scripts/oracle";
 ---
 
 <Layout title="El Oráculo de Delfos">
   <main class="oracle-main">
     <header class="oracle-header">
-    
-
       <div class="header-titles">
         <h1 class="header-title cinzel">El Oráculo</h1>
         <p class="header-tagline">La Pitia habla por boca del dios</p>
       </div>
       <div class="meander header-meander"></div>
-
     </header>
-    
+
     <OracleCalm />
     <OracleTrance />
     <OracleBusy />
-    <Profecy/>
+    <Profecy />
   </main>
 </Layout>
 
-<style >
-    /* ── Layout ── */
+<style>
+  /* ── Layout ── */
   .oracle-main {
-        padding: 1rem;
+    padding: 1rem;
     max-height: 100vh;
-    display: grid ;
+    display: grid;
     grid-template-rows: auto 1fr auto;
     align-items: center;
     max-width: 680px;
@@ -57,15 +55,12 @@ import Profecy from '../components/Profecy.astro';
     gap: 0.8rem;
   }
 
-
   .header-titles {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
   }
-
-  
 
   .header-title {
     font-size: 2.8rem;
@@ -75,19 +70,28 @@ import Profecy from '../components/Profecy.astro';
     text-transform: uppercase;
     color: var(--gold-light);
     text-shadow:
-      0 0 40px rgba(201,168,76,0.5),
-      0 0 80px rgba(201,168,76,0.2);
+      0 0 40px rgba(201, 168, 76, 0.5),
+      0 0 80px rgba(201, 168, 76, 0.2);
     animation: title-shimmer 6s ease-in-out infinite;
   }
 
   @keyframes title-shimmer {
-    0%, 100% { text-shadow: 0 0 40px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2); }
-    50%       { text-shadow: 0 0 60px rgba(201,168,76,0.7), 0 0 100px rgba(201,168,76,0.3); }
+    0%,
+    100% {
+      text-shadow:
+        0 0 40px rgba(201, 168, 76, 0.5),
+        0 0 80px rgba(201, 168, 76, 0.2);
+    }
+    50% {
+      text-shadow:
+        0 0 60px rgba(201, 168, 76, 0.7),
+        0 0 100px rgba(201, 168, 76, 0.3);
+    }
   }
 
   .header-tagline {
     font-style: italic;
-    font-size: 0.80rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     letter-spacing: 0.05em;
   }
@@ -96,372 +100,29 @@ import Profecy from '../components/Profecy.astro';
     max-width: 360px;
   }
 
-  
-  /* ── Prophecy ── */
-  .prophecy-scene {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    animation: fade-in-up 0.8s ease both;
-  }
-
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .prophecy-header {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .prophecy-header-ornament {
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.8;
-  }
-
-  .prophecy-scroll {
-    width: 100%;
-    max-width: 560px;
-    background: linear-gradient(160deg, rgba(25, 18, 8, 0.95) 0%, rgba(15, 10, 4, 0.98) 100%);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    position: relative;
-    box-shadow:
-      0 0 60px rgba(0,0,0,0.7),
-      0 0 30px rgba(201,168,76,0.05),
-      inset 0 0 80px rgba(0,0,0,0.4);
-  }
-
-  .prophecy-scroll::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 50%);
-    pointer-events: none;
-    border-radius: 2px;
-  }
-
-  /* Scroll corner ornaments */
-  .scroll-corner {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-color: var(--gold-dark);
-    border-style: solid;
-    opacity: 0.6;
-  }
-  .scroll-corner.tl { top: 8px;  left: 8px;  border-width: 1px 0 0 1px; }
-  .scroll-corner.tr { top: 8px;  right: 8px; border-width: 1px 1px 0 0; }
-  .scroll-corner.bl { bottom: 8px; left: 8px;  border-width: 0 0 1px 1px; }
-  .scroll-corner.br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
-
-  .scroll-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .prophecy-intro {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-align: center;
-  }
-
-  .prophecy-divider {
-    text-align: center;
-    color: var(--gold-dark);
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-  }
-
-  .prophecy-text {
-    font-style: italic;
-    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-    line-height: 1.85;
-    color: var(--gold-pale);
-    text-align: center;
-    letter-spacing: 0.02em;
-    min-height: 4rem;
-  }
-
-  .cursor-blink {
-    color: var(--gold);
-    font-style: normal;
-    animation: cursor-flash 0.8s step-end infinite;
-    font-size: 1.1em;
-  }
-
-  .cursor-blink.hidden { display: none !important; }
-
-  @keyframes cursor-flash {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-
-  .prophecy-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-
- 
-  /* ── Footer ── */
-  .oracle-footer {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .footer-text {
-    font-size: 1.1rem;
-    letter-spacing: 0.3em;
-    color: var(--gold-dark);
-    opacity: 0.7;
-  }
-
-  .footer-sub {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    opacity: 0.4;
-    font-style: italic;
-  }
-
   /* ── Responsive ── */
   @media (max-width: 480px) {
-    .oracle-main { padding: 1.5rem 1rem 3rem; }
-    .pythia-container { width: 220px; height: 355px; }
-    .prophecy-scroll { padding: 1.8rem 1.5rem; }
-    .oracle-btn { padding: 0.8rem 1.5rem; }
+    .oracle-main {
+      padding: 1.5rem 1rem 3rem;
+    }
+    .pythia-container {
+      width: 220px;
+      height: 355px;
+    }
+    .prophecy-scroll {
+      padding: 1.8rem 1.5rem;
+    }
+    .oracle-btn {
+      padding: 0.8rem 1.5rem;
+    }
   }
-
 </style>
 
-
 <!-- ═══════════════════════════════════════
-     CLIENT SCRIPT — State Machine
+     CLIENT SCRIPT — Initialization
 ═══════════════════════════════════════ -->
 <script>
-import { STATE_IDS } from "../consts/states";
-import type { AppState } from "../types/stateType";
+  import { initOracleScript } from "../scripts/oracle";
 
-// ── Ridiculous excuses for rate limit ──────────────────────────────────────
-const EXCUSES: string[] = [
-  "La Pitia está ocupada discutiendo con el dios Apolo sobre el precio del laurel.",
-  "Los vapores del Casotis han causado que la Pitia confunda las profecías con recetas de cocina.",
-  "La Pitia se ha quedado dormida mientras esperaba que alguien le trajera aceitunas del Peloponeso.",
-  "La Pitia está en una reunión urgente con las otras Pitonisas sobre el convenio colectivo del siglo IV a.C.",
-  "Los cuervos sagrados de Apolo han robado el papiro donde la Pitia anotó tus preguntas anteriores.",
-  "La Pitia afirma que los astros indican que este no es un buen momento para revelar destinos. Ni para ella.",
-  "Un peregrino anterior pagó con monedas falsas y la Pitia está haciendo huelga de profecías.",
-  "La Pitia está reorganizando el archivo de destinos por orden alfabético. Es un trabajo lento.",
-  "El humo sagrado ha provocado que la Pitia vea el futuro pero no recuerde el presente.",
-  "La Pitia ha salido a comprar hojas de laurel frescas. Las anteriores caducaron en el año 390 a.C.",
-  "La Pitia está en proceso de actualizar sus profecías al nuevo sistema de escritura. La burocracia es eterna.",
-];
-
-// ── Busy excuses countdown ─────────────────────────────────────────────────
-let countdownInterval: ReturnType<typeof setInterval> | null = null;
-
-function showBusy(seconds: number) {
-  showState('busy');
-
-  // Pick random excuse
-  const excuse = EXCUSES[Math.floor(Math.random() * EXCUSES.length)];
-  const excuseEl = document.getElementById('busy-excuse-text');
-  if (excuseEl) excuseEl.textContent = excuse;
-
-  // Countdown
-  const countdownEl = document.getElementById('busy-countdown');
-  if (!countdownEl) return;
-
-  let remaining = seconds;
-  countdownEl.textContent = String(remaining);
-
-  if (countdownInterval) clearInterval(countdownInterval);
-  countdownInterval = setInterval(() => {
-    remaining--;
-    countdownEl.textContent = String(remaining);
-    if (remaining <= 0) {
-      clearInterval(countdownInterval!);
-      countdownInterval = null;
-      showState('initial');
-    }
-  }, 1000);
-}
-
-
-
-
-function showState(state: AppState) {
-  Object.entries(STATE_IDS).forEach(([key, id]) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (key === state) {
-      el.classList.remove('hidden');
-    } else {
-      el.classList.add('hidden');
-    }
-  });
-}
-
-// ── Typewriter effect ──────────────────────────────────────────────────────
-async function typewriterStream(text: string, targetEl: HTMLElement, cursorEl: HTMLElement) {
-  targetEl.textContent = '';
-  cursorEl.classList.remove('hidden');
-
-  const words = text.split('');
-  for (const char of words) {
-    targetEl.textContent += char;
-    await new Promise(r => setTimeout(r, 28 + Math.random() * 22));
-  }
-
-  // Blink cursor briefly then hide
-  setTimeout(() => {
-    cursorEl.classList.add('hidden');
-  }, 2500);
-}
-
-// ── API call ────────────────────────────────────────────────────────────────
-async function consultOracle(question: string) {
-  showState('trance');
-
-  try {
-    const response = await fetch('/api/oracle', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question }),
-    });
-
-    if (response.status === 429) {
-      // Rate limited
-      const retryAfter = parseInt(response.headers.get('Retry-After') || '60', 10);
-      let data: { retryAfter?: number } = {};
-      try { data = await response.json(); } catch {}
-      showBusy(data.retryAfter ?? retryAfter);
-      return;
-    }
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    // ── Streaming response ────────────────────────────────────────────────
-    showState('prophecy');
-    const prophecyEl = document.getElementById('prophecy-text') as HTMLElement;
-    const cursorEl = document.getElementById('prophecy-cursor') as HTMLElement;
-    prophecyEl.textContent = '';
-    cursorEl.classList.remove('hidden');
-
-    const contentType = response.headers.get('Content-Type') || '';
-
-    if (contentType.includes('text/event-stream') || contentType.includes('text/plain')) {
-      // SSE / streaming text
-      const reader = response.body!.getReader();
-      const decoder = new TextDecoder();
-      let buffer = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const raw = line.slice(6).trim();
-            if (raw === '[DONE]') continue;
-            try {
-              const parsed = JSON.parse(raw);
-              const chunk: string = parsed.delta ?? parsed.text ?? parsed.answer ?? raw;
-              for (const char of chunk) {
-                prophecyEl.textContent += char;
-                await new Promise(r => setTimeout(r, 25 + Math.random() * 20));
-              }
-            } catch {
-              // plain text chunk
-              for (const char of raw) {
-                prophecyEl.textContent += char;
-                await new Promise(r => setTimeout(r, 25 + Math.random() * 20));
-              }
-            }
-          }
-        }
-      }
-      cursorEl.classList.add('hidden');
-
-    } else {
-      // JSON response with full answer
-      const data: { answer: string } = await response.json();
-      await typewriterStream(data.answer, prophecyEl, cursorEl);
-    }
-
-  } catch (err) {
-    console.error('Oracle error:', err);
-    showState('initial');
-    const errorEl = document.getElementById('form-error');
-    if (errorEl) {
-      errorEl.textContent = 'Los dioses no responden. Intenta de nuevo.';
-      errorEl.classList.remove('hidden');
-      setTimeout(() => errorEl.classList.add('hidden'), 4000);
-    }
-  }
-}
-
-// ── Event listeners ────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('oracle-form') as HTMLFormElement;
-  const textarea = document.getElementById('oracle-question') as HTMLTextAreaElement;
-  const btnAgain = document.getElementById('btn-again') as HTMLButtonElement;
-  const errorEl = document.getElementById('form-error') as HTMLElement;
-
-  // Expand textarea as user types
-  textarea?.addEventListener('input', () => {
-    textarea.style.height = 'auto';
-    textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
-  });
-
-  // Submit form
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const question = textarea.value.trim();
-
-    if (!question) {
-      errorEl.textContent = 'El Oráculo no responde al silencio. Formula tu pregunta.';
-      errorEl.classList.remove('hidden');
-      textarea.focus();
-      return;
-    }
-
-    errorEl.classList.add('hidden');
-    await consultOracle(question);
-  });
-
-  // "Consult again" resets to initial
-  btnAgain?.addEventListener('click', () => {
-    showState('initial');
-    textarea.value = '';
-    textarea.style.height = '';
-    const prophecyEl = document.getElementById('prophecy-text');
-    if (prophecyEl) prophecyEl.textContent = '';
-    textarea.focus();
-  });
-
-  // Initial state
-  showState('initial');
-});
+  initOracleScript();
 </script>
