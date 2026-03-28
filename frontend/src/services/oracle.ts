@@ -7,7 +7,7 @@ export async function consultOracle(question: string) {
   showState("trance");
 
   try {
-    const response = await fetch("/api/oracle", {
+    const response = await fetch("http://localhost:3000/api/oracle", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question }),

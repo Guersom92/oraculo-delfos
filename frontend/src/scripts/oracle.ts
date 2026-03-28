@@ -11,11 +11,6 @@ export function initOracleScript() {
     const btnAgain = document.getElementById("btn-again") as HTMLButtonElement;
     const errorEl = document.getElementById("form-error") as HTMLElement;
 
-    // Expand textarea as user types
-    textarea?.addEventListener("input", () => {
-      textarea.style.height = "auto";
-      textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
-    });
 
     // Submit form
     form?.addEventListener("submit", async (e) => {
@@ -38,7 +33,6 @@ export function initOracleScript() {
     btnAgain?.addEventListener("click", () => {
       showState("initial");
       textarea.value = "";
-      textarea.style.height = "";
       const prophecyEl = document.getElementById("prophecy-text");
       if (prophecyEl) prophecyEl.textContent = "";
       textarea.focus();
