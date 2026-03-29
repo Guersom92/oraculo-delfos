@@ -12,6 +12,7 @@ export async function consultOracle(question: string) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question }),
     });
+    console.log(response)
 
     if (response.status === 429) {
       // Rate limited

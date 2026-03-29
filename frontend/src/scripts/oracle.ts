@@ -10,10 +10,11 @@ export function initOracleScript() {
     ) as HTMLTextAreaElement;
     const btnAgain = document.getElementById("btn-again") as HTMLButtonElement;
     const errorEl = document.getElementById("form-error") as HTMLElement;
-
+    console.log("is :",form)
 
     // Submit form
     form?.addEventListener("submit", async (e) => {
+      console.log("Form submitted")
       e.preventDefault();
       const question = textarea.value.trim();
 
