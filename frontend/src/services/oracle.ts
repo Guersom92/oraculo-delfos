@@ -12,7 +12,6 @@ export async function consultOracle(question: string) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question }),
     });
-    console.log(response)
 
     if (response.status === 429) {
       // Rate limited
@@ -20,13 +19,9 @@ export async function consultOracle(question: string) {
         response.headers.get("Retry-After") || "60",
         10,
       );
-      let data: { retryAfter?: number } = {};
-      try {
-        data = await response.json();
-      } catch {}
-      
+
       const excuse = EXCUSES[Math.floor(Math.random() * EXCUSES.length)];
-      showBusy(data.retryAfter ?? retryAfter, excuse);
+      showBusy(retryAfter, excuse);
       return;
     }
 
@@ -45,47 +40,22 @@ export async function consultOracle(question: string) {
     prophecyEl.textContent = "";
     cursorEl.classList.remove("hidden");
 
-    const contentType = response.headers.get("Content-Type") || "";
 
-    if (
-      contentType.includes("text/event-stream") ||
-      contentType.includes("text/plain")
-    ) {
-      // SSE / streaming text
-      const reader = response.body!.getReader();
-      const decoder = new TextDecoder();
-      let buffer = "";
+    // streaming text
+    const reader = response.body!.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
 
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split("\n");
-        buffer = lines.pop() || "";
-
-        for (const line of lines) {
-          if (line.startsWith("data: ")) {
-            const raw = line.slice(6).trim();
-            if (raw === "[DONE]") continue;
-            try {
-              const parsed = JSON.parse(raw);
-              const chunk: string =
-                parsed.delta ?? parsed.text ?? parsed.answer ?? raw;
-              await streamText(chunk, prophecyEl, 25, 20);
-            } catch {
-              // plain text chunk
-              await streamText(raw, prophecyEl, 25, 20);
-            }
-          }
-        }
-      }
-      cursorEl.classList.add("hidden");
-    } else {
-      // JSON response with full answer
-      const data: { answer: string } = await response.json();
-      await typewriterStream(data.answer, prophecyEl, cursorEl);
+      buffer += decoder.decode(value, { stream: true });
+      prophecyEl.textContent += buffer;
+      
     }
+    cursorEl.classList.add("hidden");
+
   } catch (err) {
     console.error("Oracle error:", err);
     showState("initial");

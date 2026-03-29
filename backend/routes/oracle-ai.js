@@ -13,6 +13,8 @@ oracleRouter.use(aiRateLimiter)
 
 oracleRouter.post("/", async(request, response) => {
     const message = request.body
+    response.setHeader('Content-Type', 'text/plain',"charset=utf-8");
+    response.setHeader('transfer-encoding','chunked')
 
     if (!message) {
         return response.status(400).json({
@@ -21,12 +23,17 @@ oracleRouter.post("/", async(request, response) => {
     }
     try {
         
-        console.log(message)
-        return response.status(201).json("Te amo mucho, Selene <3")
+        response.write("Te amo mucho, Selene")
+        return response.end()
 
     } catch (error) {
-        return response.status(500).json({error: 'error connecting to AI'})
+        if (!response.headersSent) {
+            res.setHeader('Content-Type', 'application/json')
+            return response.status(500).json({error: 'error connecting to AI'})
+    }
+    return response.end()
     }    
+
 })
 
 module.exports = oracleRouter

@@ -107,16 +107,8 @@
 
     <!-- Busy message card -->
     <div class="busy-card">
-      <div class="meander"></div>
 
-      <h2 class="busy-title cinzel">La Pitia no está disponible</h2>
-
-      <div class="busy-divider">
-        <span class="busy-divider-line"></span>
-        <span class="busy-divider-ornament">✦</span>
-        <span class="busy-divider-line"></span>
-      </div>
-
+      
       <p class="busy-excuse" id="busy-excuse-text">
         <!-- Filled by JS -->
       </p>
@@ -127,7 +119,6 @@
         <p class="busy-countdown-unit cinzel">segundos</p>
       </div>
 
-      <div class="meander"></div>
     </div>
 
   </div>
@@ -170,13 +161,12 @@
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 2px;
-    padding: 2rem 2.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
     box-shadow:
       0 0 40px rgba(0,0,0,0.6),
       inset 0 0 60px rgba(0,0,0,0.3);
@@ -203,33 +193,8 @@
     opacity: 0.4;
   }
 
-  .busy-title {
-    font-size: 1.1rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    font-weight: 600;
-  }
 
-  .busy-divider {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    width: 70%;
-  }
-
-  .busy-divider-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .busy-divider-ornament {
-    color: var(--gold);
-    font-size: 0.7rem;
-    opacity: 0.7;
-  }
-
+  
   .busy-excuse {
     font-style: italic;
     color: var(--text-muted);
@@ -243,7 +208,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
     margin: 0.5rem 0;
   }
 
