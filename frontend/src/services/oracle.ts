@@ -1,12 +1,12 @@
 import { showState, showBusy } from "../utils/stateManager";
 import { EXCUSES } from "../consts/excuses";
+const MAIN_URL = import.meta.env.PUBLIC_MAIN_URL;
 
 // ── API call to oracle endpoint ────────────────────────────────────────────────
 export async function consultOracle(question: string) {
   showState("trance");
-
   try {
-    const response = await fetch("http://localhost:3000/api/oracle", {
+    const response = await fetch(`${MAIN_URL||""}/api/oracle`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question }),
@@ -33,11 +33,8 @@ export async function consultOracle(question: string) {
     const prophecyEl = document.getElementById(
       "prophecy-text",
     ) as HTMLElement;
-    const cursorEl = document.getElementById(
-      "prophecy-cursor",
-    ) as HTMLElement;
+
     prophecyEl.textContent = "";
-    cursorEl.classList.remove("hidden");
 
 
     // streaming text
@@ -53,7 +50,6 @@ export async function consultOracle(question: string) {
       prophecyEl.textContent += buffer;
       
     }
-    cursorEl.classList.add("hidden");
 
   } catch (err) {
     console.error("Oracle error:", err);
