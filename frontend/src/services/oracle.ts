@@ -6,7 +6,7 @@ const MAIN_URL = import.meta.env.PUBLIC_MAIN_URL;
 export async function consultOracle(question: string) {
   showState("trance");
   try {
-    const response = await fetch(`${MAIN_URL||""}/api/oracle`, {
+    const response = await fetch(`${MAIN_URL}/api/oracle`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question }),
