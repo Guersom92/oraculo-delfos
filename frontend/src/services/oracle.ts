@@ -1,5 +1,4 @@
 import { showState, showBusy } from "../utils/stateManager";
-import { typewriterStream, streamText } from "../utils/effects";
 import { EXCUSES } from "../consts/excuses";
 
 // ── API call to oracle endpoint ────────────────────────────────────────────────

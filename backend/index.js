@@ -1,8 +1,9 @@
-process.loadEnvFile()
+//process.loadEnvFile()
 const express = require('express')
 const app = express()
 oracleRouter = require('./routes/oracle-ai')
 const cors = require('cors')
+require('dotenv').config(); 
 
 app.set('trust proxy', 1)
 const corsOptions = {

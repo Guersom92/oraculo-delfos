@@ -18,7 +18,6 @@
               <span>— ✦ —</span>
             </div>
             <p id="prophecy-text" class="prophecy-text" role="status" aria-live="polite"></p>
-            <span id="prophecy-cursor" class="cursor-blink" aria-hidden="true">|</span>
           </div>
         </div>
 
@@ -124,19 +123,7 @@
     min-height: 4rem;
   }
 
-  .cursor-blink {
-    color: var(--gold);
-    font-style: normal;
-    animation: cursor-flash 0.8s step-end infinite;
-    font-size: 1.1em;
-  }
-
-  .cursor-blink.hidden { display: none !important; }
-
-  @keyframes cursor-flash {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
+ 
 
   .prophecy-actions {
     display: flex;
