@@ -17,7 +17,7 @@ a modo de parodia del horóscopo clásico.
 
 ## 📸 Capturas de pantalla
 
-![Screenshot de Oráculo de Delfos](/Screenshot.png)
+![Screenshot de Oráculo de Delfos](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67TCXJFQCHEBNL4ELRI2OLYR5A)
 
 ## ☁️ ¿Cómo has utilizado CubePath?
 
