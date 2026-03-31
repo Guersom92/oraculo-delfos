@@ -14,6 +14,14 @@ export function initOracleScript() {
     // Check if there's an active rate-limit countdown
     checkAndRestoreCountdown();
 
+    //Listen for form through "Enter" key (without Shift)
+    textarea.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        form.requestSubmit();
+      }
+    });
+
     // Submit form
     form?.addEventListener("submit", async (e) => {
       e.preventDefault();

@@ -16,8 +16,11 @@ Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves 
 
 ## 📸 Capturas de pantalla
 
-![Screenshot de Oráculo de Delfos](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67TCXJFQCHEBNL4ELRI2OLYR5A)
+![Screenshot de Oráculo de Delfos - Estado inicial](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67TZD33P45HFXLCULEG2OMGUDQ)
 
+![Screenshot de Oráculo de Delfos - Estado de carga](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot2.png?token=GHSAT0AAAAAADYNE67TKEA3CWS5PP2LOMIW2OMGV4Q)
+
+![Screenshot de Oráculo de Delfos - Estado final](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot3.png?token=GHSAT0AAAAAADYNE67SLRCJBB344Q72LWZM2OMGWLA)
 ## ☁️ ¿Cómo has utilizado CubePath?
 
 He desplegado el servidor backend en CubePath usando **Dokploy**, que gestiona
