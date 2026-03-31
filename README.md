@@ -4,7 +4,7 @@
 
 ## 📝 Descripción del proyecto
 
-Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves del oráculo. EL oráculo responde las preguntas de los usuarios con profecías ambiguas y crípticas. Cuenta con rate-limit para que no se agoten mis usos de las diversas IAs. 
+Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves del oráculo. EL oráculo responde las preguntas de los usuarios con profecías ambiguas y crípticas. Cuenta con rate-limit para que no se agoten mis usos de las diversas IAs. Tambien paso la respuesta de la API por chunks para mejorar la UX. 
 
 ## 🔗 URL de la demo (desplegada en CubePath)
 
@@ -16,20 +16,21 @@ Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves 
 
 ## 📸 Capturas de pantalla
 
-![Screenshot de Oráculo de Delfos - Estado inicial](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67STIKPFGODELR5QDAK2OMHVJQ)
+<img src="https://github.com/Guersom92/oraculo-delfos/blob/master/frontend/public/Screenshot.png?raw=true" alt="Screenshot de Oráculo de Delfos - Estado inicial" width="683" height="306">
 
-![Screenshot de Oráculo de Delfos - Estado de carga](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot2.png?token=GHSAT0AAAAAADYNE67TU3RXCK4GRQF2XHDK2OMHUYQ)
+<img src="https://github.com/Guersom92/oraculo-delfos/blob/master/frontend/public/Screenshot2.png?raw=true" alt="Screenshot de Oráculo de Delfos - Estado de carga" width="683" height="306">
 
-![Screenshot de Oráculo de Delfos - Estado final](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot3.png?token=GHSAT0AAAAAADYNE67TKOBRNHGE57RC4C6E2OMHUJQ)
+<img src="https://github.com/Guersom92/oraculo-delfos/blob/master/frontend/public/Screenshot3.png?raw=true" alt="Screenshot de Oráculo de Delfos - Estado final" width="683" height="306">
 
-![Screenshot de Oráculo de Delfos - Estado rate-limit](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot4.png?token=GHSAT0AAAAAADYNE67SKX53UNRL5FYILJFW2OMHRKQ)
+<img src="https://github.com/Guersom92/oraculo-delfos/blob/master/frontend/public/Screenshot4.png?raw=true" alt="Screenshot de Oráculo de Delfos - Estado rate-limit" width="683" height="306">
+
 ## ☁️ ¿Cómo has utilizado CubePath?
 
 He desplegado el servidor backend en CubePath usando **Dokploy**, que gestiona
 el servidor de **Node.js con Express** encargado de conectarse a las APIs de IA
 (Groq, Cerebras y OpenRouter) para generar las profecías. El frontend, construido
 con **Astro**, consume este servidor y presenta las respuestas al usuario con la
-estética del oráculo. Tambien paso la respuesta de la API por chunks para mejorar la UX.
+estética del oráculo. 
 
 ## 📧 Email de contacto
 
