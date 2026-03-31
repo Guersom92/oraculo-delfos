@@ -28,9 +28,8 @@ import Profecy from "../components/Profecy.astro";
   .oracle-main {
     padding: 1rem;
     max-height: 100svh;
-    display: grid;
-    grid-template-rows: 1fr 5fr ;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     max-width: 680px;
     margin: 0 auto;
     position: relative;
@@ -50,6 +49,7 @@ import Profecy from "../components/Profecy.astro";
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
     align-items: center;
     gap: 0.8rem;
   }
@@ -62,7 +62,7 @@ import Profecy from "../components/Profecy.astro";
   }
 
   .header-title {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     font-weight: 900;
     letter-spacing: 0.08em;
     line-height: 1;
@@ -90,7 +90,7 @@ import Profecy from "../components/Profecy.astro";
 
   .header-tagline {
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--text-muted);
     letter-spacing: 0.05em;
   }
@@ -99,6 +99,11 @@ import Profecy from "../components/Profecy.astro";
     max-width: 360px;
   }
 
+  @media (max-width: 480px) {
+    .oracle-header{
+      margin-bottom: 4rem;
+    }
+  }
   
 </style>
 
