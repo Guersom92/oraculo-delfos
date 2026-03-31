@@ -24,7 +24,7 @@ He desplegado el servidor backend en CubePath usando **Dokploy**, que gestiona
 el servidor de **Node.js con Express** encargado de conectarse a las APIs de IA
 (Groq, Cerebras y OpenRouter) para generar las profecías. El frontend, construido
 con **Astro**, consume este servidor y presenta las respuestas al usuario con la
-estética del oráculo.
+estética del oráculo. Tambien paso la respuesta de la API por chunks para mejorar la UX.
 
 ## 📧 Email de contacto
 
