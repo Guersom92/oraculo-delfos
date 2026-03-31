@@ -10,7 +10,7 @@ const corsOptions = {
   exposedHeaders: ['Retry-After']
 };
 app.use(cors(corsOptions))
-app.use(express.static('dist'))
+app.use(express.static(require('path').join(__dirname, 'dist')))
 app.use(express.json())
 app.use('/api/oracle', oracleRouter)
 
