@@ -16,11 +16,13 @@ Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves 
 
 ## 📸 Capturas de pantalla
 
-![Screenshot de Oráculo de Delfos - Estado inicial](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67TZD33P45HFXLCULEG2OMGUDQ)
+![Screenshot de Oráculo de Delfos - Estado inicial](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot.png?token=GHSAT0AAAAAADYNE67STIKPFGODELR5QDAK2OMHVJQ)
 
-![Screenshot de Oráculo de Delfos - Estado de carga](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot2.png?token=GHSAT0AAAAAADYNE67TKEA3CWS5PP2LOMIW2OMGV4Q)
+![Screenshot de Oráculo de Delfos - Estado de carga](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot2.png?token=GHSAT0AAAAAADYNE67TU3RXCK4GRQF2XHDK2OMHUYQ)
 
-![Screenshot de Oráculo de Delfos - Estado final](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot3.png?token=GHSAT0AAAAAADYNE67SLRCJBB344Q72LWZM2OMGWLA)
+![Screenshot de Oráculo de Delfos - Estado final](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot3.png?token=GHSAT0AAAAAADYNE67TKOBRNHGE57RC4C6E2OMHUJQ)
+
+![Screenshot de Oráculo de Delfos - Estado rate-limit](https://raw.githubusercontent.com/Guersom92/oraculo-delfos/refs/heads/master/frontend/public/Screenshot4.png?token=GHSAT0AAAAAADYNE67SKX53UNRL5FYILJFW2OMHRKQ)
 ## ☁️ ¿Cómo has utilizado CubePath?
 
 He desplegado el servidor backend en CubePath usando **Dokploy**, que gestiona
