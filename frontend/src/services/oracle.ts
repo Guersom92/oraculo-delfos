@@ -45,7 +45,7 @@ export async function consultOracle(question: string) {
       const { done, value } = await reader.read();
       if (done) break;
 
-      buffer += decoder.decode(value, { stream: true });
+      buffer = decoder.decode(value, { stream: true });
       prophecyEl.textContent += buffer;
       
     }

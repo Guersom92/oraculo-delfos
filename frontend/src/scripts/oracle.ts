@@ -1,5 +1,5 @@
 import { consultOracle } from "../services/oracle";
-import { showState } from "../utils/stateManager";
+import { showState, checkAndRestoreCountdown } from "../utils/stateManager";
 
 // ── Event listeners and initialization ─────────────────────────────────────────
 export function initOracleScript() {
@@ -10,11 +10,12 @@ export function initOracleScript() {
     ) as HTMLTextAreaElement;
     const btnAgain = document.getElementById("btn-again") as HTMLButtonElement;
     const errorEl = document.getElementById("form-error") as HTMLElement;
-    console.log("is :",form)
+
+    // Check if there's an active rate-limit countdown
+    checkAndRestoreCountdown();
 
     // Submit form
     form?.addEventListener("submit", async (e) => {
-      console.log("Form submitted")
       e.preventDefault();
       const question = textarea.value.trim();
 
@@ -39,7 +40,10 @@ export function initOracleScript() {
       textarea.focus();
     });
 
-    // Initial state
-    showState("initial");
+    // Initial state (only if no countdown is active)
+    const retryUntil = localStorage.getItem("oracle_retry_until");
+    if (!retryUntil) {
+      showState("initial");
+    }
   });
 }
