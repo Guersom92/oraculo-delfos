@@ -4,12 +4,11 @@
 
 ## 📝 Descripción del proyecto
 
-Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves del oráculo. EL oráculo responde las preguntas de los usuarios con profecías ambiguas y crípticas,
-a modo de parodia del horóscopo clásico. 
+Mi proyecto es una aplicación que permite que te comuniques con Apolo a traves del oráculo. EL oráculo responde las preguntas de los usuarios con profecías ambiguas y crípticas. Cuenta con rate-limit para que no se agoten mis usos de las diversas IAs. 
 
 ## 🔗 URL de la demo (desplegada en CubePath)
 
-> 🚧 En proceso de despliegue — disponible próximamente en CubePath.
+[https://oraculo-delfos.duckdns.org/](https://oraculo-delfos.duckdns.org/)
 
 ## 📦 URL del repositorio (público)
 
