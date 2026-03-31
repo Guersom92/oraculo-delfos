@@ -56,7 +56,7 @@ export async function consultOracle(question: string) {
     showState("initial");
     const errorEl = document.getElementById("form-error");
     if (errorEl) {
-      errorEl.textContent = "Los dioses no responden. Intenta de nuevo.";
+      errorEl.textContent = "Apolo no responde. Intenta de nuevo.";
       errorEl.classList.remove("hidden");
       setTimeout(() => errorEl.classList.add("hidden"), 4000);
     }
