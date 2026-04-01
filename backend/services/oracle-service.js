@@ -3,6 +3,13 @@ Otras veces tus respuestas son imprecisas y otras señalas que hay un problema c
 
 const PROVIDERS = [
     {
+        name: 'cerebras',
+        url: 'https://api.cerebras.ai/v1/chat/completions',
+        getKey: () => process.env.CEREBRAS_API_KEY,
+        model: 'llama3.1-8b',
+        extraHeaders: {}
+    },
+    {
         name: 'openrouter',
         url: 'https://openrouter.ai/api/v1/chat/completions',
         getKey: () => process.env.OPENROUTER_API_KEY,
@@ -16,13 +23,8 @@ const PROVIDERS = [
         model: 'llama-3.1-8b-instant',
         extraHeaders: {}
     },
-    {
-        name: 'cerebras',
-        url: 'https://api.cerebras.ai/v1/chat/completions',
-        getKey: () => process.env.CEREBRAS_API_KEY,
-        model: 'llama3.1-8b',
-        extraHeaders: {}
-    }]
+
+]
 
 let currentIndex = 0
 

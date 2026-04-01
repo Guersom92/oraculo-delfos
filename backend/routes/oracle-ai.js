@@ -4,7 +4,7 @@ const  streamOracleResponse  = require('../services/oracle-service')
 
 const aiRateLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minuto
-  limit: 3,            // 3 peticiones por IP por minuto
+  limit: 2,            // 2 peticiones por IP por minuto
   message: { error: 'Demasiadas consultas al oráculo. Los astros necesitan descanso.' },
   legacyHeaders: false,
   standardHeaders: 'draft-8'
@@ -14,6 +14,7 @@ oracleRouter.use(aiRateLimiter)
 
 oracleRouter.post('/', async (request, response) => {
   const question = request.body?.question
+  console.log(`[oracle] Received question: ${question}`)
 
   if (!question) {
     return response.status(400).json({ error: 'El oráculo no responde al silencio. Envía una pregunta.' })
